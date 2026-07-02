@@ -1,21 +1,34 @@
-# React Router + shadcn/ui
+# ParagraphCMS React Router Advanced
 
-This is a template for a new React Router project with React, TypeScript, and shadcn/ui.
+Ten README jest krótką dokumentacją projektu ParagraphCMS dla przykładu React Router Advanced. Projekt rozwija framework-mode blog o lokalizowane trasy, przełączanie locale, prerendering, RSS, `sitemap.xml`, `robots.txt`, `llms.txt` oraz integrację `@paragraphcms/seo`.
 
-## Adding components
+Oficjalny kontekst: [ParagraphCMS React Router Advanced](https://paragraphcms.com/docs/advanced/react-router).
 
-To add components to your app, run the following command:
+## Konfiguracja
+
+1. Skopiuj `.env.example` do `.env`.
+2. Ustaw `PARAGRAPH_API_KEY` kluczem API z ParagraphCMS.
+3. W ParagraphCMS utwórz kolekcję `blog`, jeśli korzystasz z domyślnej mapy tras.
+4. Zmień `site.url` w `paragraph.config.ts` na produkcyjną domenę.
+
+## Uruchomienie
 
 ```bash
-npx shadcn@latest add button
+pnpm install
+pnpm dev
 ```
 
-This will place the ui components in the `components` directory.
+Build i start produkcyjny:
 
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+pnpm build
+pnpm start
 ```
+
+## Najważniejsze pliki
+
+- `paragraph.config.ts` - klient ParagraphCMS i konfiguracja SEO.
+- `react-router.config.ts` - SSR oraz prerendering wszystkich znanych tras.
+- `app/routes/blog*.tsx` - domyślne trasy bloga i RSS.
+- `app/routes/locale*.tsx` - lokalizowane trasy bloga.
+- `app/routes/sitemap.xml.ts`, `robots.txt.ts`, `llms.txt.ts` - generowane dokumenty SEO.
